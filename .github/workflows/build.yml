@@ -1,0 +1,19 @@
+name: Build Kernel Dumper
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Build
+        uses: Scene-Collective/ps4-payload-sdk@v1
+        with:
+          app_path: .
+          build_command: make
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernel-dumper-950
+          path: ps4-kernel-dumper.bin
