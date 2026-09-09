@@ -12,8 +12,10 @@ jobs:
         with:
           app_path: .
           build_command: make
+      - name: List files
+        run: find . -name "*.bin" -o -name "*.elf"
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: kernel-dumper-950
-          path: ps4-kernel-dumper.bin
+          name: kernel-dumper
+          path: "*.bin"
