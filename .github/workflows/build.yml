@@ -8,7 +8,7 @@ jobs:
         with:
           submodules: true
       - name: Build
-        uses: Scene-Collective/ps4-payload-sdk@v1
+        uses: Scene-Collective/ps4-payload-sdk@v1.0.0
         with:
           app_path: .
           build_command: make
